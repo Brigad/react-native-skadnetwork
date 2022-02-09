@@ -5,18 +5,20 @@ SKAdNetwork React Native Wrapper
 ## Installation
 
 ```sh
-npm install react-native-skadnetwork
+yarn add @brigad/react-native-skadnetwork
 ```
 
 ## Usage
 
 ```js
-import { multiply } from "react-native-skadnetwork";
+import { updatePostbackConversionValue } from "@brigad/react-native-skadnetwork";
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await updatePostbackConversionValue(0); // 0 for new installs
 ```
+
+See [Apple Docs](https://developer.apple.com/documentation/storekit/skadnetwork/3919928-updatepostbackconversionvalue)
 
 ## Contributing
 
