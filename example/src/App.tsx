@@ -1,31 +1,40 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-skadnetwork';
+import { View, Text } from 'react-native';
+import { updatePostbackConversionValue } from 'react-native-skadnetwork';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
+  const [status, setStatus] = React.useState<null | boolean>(null);
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    updatePostbackConversionValue(0)
+      .then(() => setStatus(true))
+      .catch(() => setStatus(false));
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor:
+          status === null ? 'white' : status === true ? 'green' : 'red',
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: 'white',
+          padding: 16,
+          borderRadius: 4,
+        }}
+      >
+        <Text
+          style={{
+            textAlign: 'center',
+          }}
+        >{`SKAdNetwork: ${status}`}</Text>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});

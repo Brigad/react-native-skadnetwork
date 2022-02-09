@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-skadnetwork": ["./src/index"]
+      "@brigad/react-native-skadnetwork": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

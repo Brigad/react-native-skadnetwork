@@ -6,8 +6,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const Skadnetwork = NativeModules.Skadnetwork
-  ? NativeModules.Skadnetwork
+const RNSKAdNetwork = NativeModules.RNSKAdNetwork
+  ? NativeModules.RNSKAdNetwork
   : new Proxy(
       {},
       {
@@ -17,6 +17,8 @@ const Skadnetwork = NativeModules.Skadnetwork
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Skadnetwork.multiply(a, b);
+export function updatePostbackConversionValue(
+  conversionValue: number
+): Promise<boolean> {
+  return RNSKAdNetwork.updatePostbackConversionValue(conversionValue);
 }
