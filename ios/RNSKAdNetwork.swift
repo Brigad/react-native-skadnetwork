@@ -1,5 +1,9 @@
 @objc(RNSKAdNetwork)
 class RNSKAdNetwork: NSObject {
+    @objc static func requiresMainQueueSetup() -> Bool {
+        return false
+    }
+
     @objc(updatePostbackConversionValue:withResolver:withRejecter:)
     func updatePostbackConversionValue(conversionValue: Int, resolve: @escaping RCTPromiseResolveBlock,reject: @escaping RCTPromiseRejectBlock) -> Void {
         if (conversionValue < 0 || conversionValue > 63) {
